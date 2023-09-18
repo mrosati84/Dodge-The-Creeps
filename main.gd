@@ -2,22 +2,22 @@ extends Node2D
 
 @export var mob_scene : PackedScene
 
-var score
-
-## start the game when the scene is ready
-func _ready():
-	new_game()
+var score : int
 
 ## player died
 func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
+	$HUD.show_game_over()
 
 ## start a new game
 func new_game():
 	score = 0
+	$HUD.update_score(score)
+	$HUD.show_message("Get Ready!")
 	$Player.start($StartPosition.position)
-	$StartTimer.start()
+	$MobTimer.start()
+	$ScoreTimer.start()
 
 func _on_mob_timer_timeout():
 	# Create a new instance of the Mob scene.
@@ -46,12 +46,11 @@ func _on_mob_timer_timeout():
 
 func _on_score_timer_timeout():
 	score += 1
-	print(score)
-
-func _on_start_timer_timeout():
-	$MobTimer.start()
-	$ScoreTimer.start()
+	$HUD.update_score(score)
 
 ## player has been hit, game over
 func _on_player_hit():
 	game_over()
+
+func _on_hud_start_game():
+	new_game()

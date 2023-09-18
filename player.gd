@@ -33,9 +33,9 @@ func _process(delta):
 	## calculate speed and animate movement
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * _speed
-		$AnimatedSprite2D.play()
+		$AnimatedSprite2D.play("walk")
 	else:
-		$AnimatedSprite2D.stop()
+		$AnimatedSprite2D.play("idle")
 
 	## apply the movement
 	position += velocity * delta
@@ -48,7 +48,8 @@ func start(pos: Vector2):
 	$CollisionShape2D.set_deferred("disabled", false)
 
 func _on_body_entered(_body):
-	hide()
-	hit.emit()
+	#disable death
+	#hide()
+	#hit.emit()
 	
 	$CollisionShape2D.set_deferred("disabled", true)

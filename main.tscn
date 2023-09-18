@@ -15,6 +15,16 @@ point_count = 5
 script = ExtResource("1_dk03n")
 mob_scene = ExtResource("1_ikhjr")
 
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 480.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.278431, 0.92549, 0.807843, 1)
+
 [node name="Player" parent="." instance=ExtResource("1_ndice")]
 
 [node name="StartPosition" type="Marker2D" parent="."]

@@ -2,6 +2,7 @@ extends Node2D
 
 @export var mob_scene : PackedScene
 
+## global score
 var score : int
 
 ## player died

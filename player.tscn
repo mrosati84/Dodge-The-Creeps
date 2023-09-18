@@ -1,22 +1,25 @@
 [gd_scene load_steps=6 format=3 uid="uid://dxvii0preo332"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_s7jf8"]
-[ext_resource type="Texture2D" uid="uid://p4gr4jfo442t" path="res://art/playerGrey_walk[12].png" id="1_vc3qi"]
-[ext_resource type="Texture2D" uid="uid://dpxojfqdrurt8" path="res://art/playerGrey_walk[22].png" id="2_u4a2v"]
+[ext_resource type="Texture2D" uid="uid://p4gr4jfo442t" path="res://art/playerGrey_walk[1-2].png" id="2_xi3pw"]
+[ext_resource type="Texture2D" uid="uid://dpxojfqdrurt8" path="res://art/playerGrey_walk[2-2].png" id="3_1q6hp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_co62y"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xi3pw")
+}],
 "loop": true,
-"name": &"up",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_vc3qi")
+"texture": ExtResource("3_1q6hp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_u4a2v")
+"texture": ExtResource("2_xi3pw")
 }],
 "loop": true,
 "name": &"walk",
@@ -33,8 +36,6 @@ metadata/_edit_group_ = true
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_co62y")
 animation = &"walk"
-frame = 1
-frame_progress = 0.490127
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(3.25, 3.25)

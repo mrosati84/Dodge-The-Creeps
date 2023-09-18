@@ -1,11 +1,14 @@
 extends Area2D
 
+signal hit
+
 @export var _speed : int = 400
 
 var _screen_size
 
 func _ready():
 	_screen_size = get_viewport_rect().size
+	hide()
 
 func _process(delta):
 	var velocity = Vector2.ZERO
@@ -34,3 +37,14 @@ func _process(delta):
 	## apply the movement
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, _screen_size)
+
+func start(pos):
+	position = pos
+	show()
+	$CollisionShape2D.set_deferred("disabled", false)
+
+func _on_body_entered(body):
+	hide()
+	hit.emit()
+	
+	$CollisionShape2D.set_deferred("disabled", true)

@@ -39,16 +39,16 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r5h0u"]
-radius = 40.0
+radius = 30.0
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="Mob" type="RigidBody2D"]
 collision_mask = 0
 gravity_scale = 2.66454e-15
 script = ExtResource("1_3se2i")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_cj0lg")
 animation = &"walk"
 frame = 5
@@ -58,3 +58,5 @@ frame_progress = 0.987368
 shape = SubResource("CircleShape2D_r5h0u")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

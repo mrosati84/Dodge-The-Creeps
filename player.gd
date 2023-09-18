@@ -1,10 +1,11 @@
 extends Area2D
 
 @export var _speed : int = 400
-var screen_size
+
+var _screen_size
 
 func _ready():
-	screen_size = get_viewport_rect().size
+	_screen_size = get_viewport_rect().size
 
 func _process(delta):
 	var velocity = Vector2.ZERO
@@ -19,6 +20,10 @@ func _process(delta):
 	if Input.is_action_pressed("move_down"):
 		velocity.y += 1
 	
+	## flip the sprite horizontally when moving left/right
+	if velocity.x != 0:
+		$AnimatedSprite2D.flip_h = velocity.x < 0
+	
 	## calculate speed and animate movement
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * _speed
@@ -26,5 +31,6 @@ func _process(delta):
 	else:
 		$AnimatedSprite2D.stop()
 
+	## apply the movement
 	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
+	position = position.clamp(Vector2.ZERO, _screen_size)

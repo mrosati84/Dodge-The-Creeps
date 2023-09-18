@@ -23,9 +23,12 @@ func _process(delta):
 	if Input.is_action_pressed("move_down"):
 		velocity.y += 1
 	
-	## flip the sprite horizontally when moving left/right
+	## flip the sprite horizontally when moving
 	if velocity.x != 0:
 		$AnimatedSprite2D.flip_h = velocity.x < 0
+	
+	if velocity.y != 0:
+		$AnimatedSprite2D.flip_v = velocity.y > 0
 	
 	## calculate speed and animate movement
 	if velocity.length() > 0:
@@ -38,12 +41,13 @@ func _process(delta):
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, _screen_size)
 
-func start(pos):
+## start the player scene given a position
+func start(pos: Vector2):
 	position = pos
 	show()
 	$CollisionShape2D.set_deferred("disabled", false)
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	hide()
 	hit.emit()
 	

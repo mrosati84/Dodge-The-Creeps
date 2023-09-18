@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://uknckai2okmm"
-path="res://.godot/imported/mob_walk[6:7].png-3cdc670d5673844a7c4b494505af8d71.ctex"
+path="res://.godot/imported/mob_walk[67].png-31f1181f6b3a1c413f13ecd87d2f3892.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/mob_walk[6:7].png"
-dest_files=["res://.godot/imported/mob_walk[6:7].png-3cdc670d5673844a7c4b494505af8d71.ctex"]
+source_file="res://art/mob_walk[67].png"
+dest_files=["res://.godot/imported/mob_walk[67].png-31f1181f6b3a1c413f13ecd87d2f3892.ctex"]
 
 [params]
 
